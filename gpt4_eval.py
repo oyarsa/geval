@@ -12,6 +12,9 @@ def run_instance(
 ) -> dict[str, Any] | None:
     while True:
         try:
+            # Sample GPT 20 times and save all of them.
+            # The final answer will be the average of all the scores.
+            # NB: If the answer isn't valid, it will considered as 0.
             response = openai.ChatCompletion.create(
                 model=model,
                 messages=[{"role": "system", "content": prompt}],
